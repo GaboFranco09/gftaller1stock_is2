@@ -73,8 +73,7 @@ class VentaController extends Controller
         // Actualizar stock Flask
         try {
             Http::timeout(3)->patch(
-                "{$this->inventarioUrl}/stock/{$productoId}",
-                ['cantidad' => $cantidad]
+                "{$this->inventarioUrl}/stock/{$productoId}?cantidad={$cantidad}"
             );
         } catch (\Exception $e) {
             return response()->json([
